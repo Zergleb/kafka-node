@@ -733,7 +733,10 @@ var options = {
   migrateRolling: true,
   // Callback to allow consumers with autoCommit false a chance to commit before a rebalance finishes
   // isAlreadyMember will be false on the first connection, and true on rebalances triggered after that
-  onRebalance: (isAlreadyMember, callback) => { callback(); } // or null
+  onRebalance: (isAlreadyMember, callback) => { callback(); }, // or null
+  // If set to 'buffer', values will be returned as raw buffer objects.
+  encoding: 'utf8',
+  keyEncoding: 'utf8'
 };
 
 var consumerGroup = new ConsumerGroup(options, ['RebalanceTopic', 'RebalanceTest']);
